@@ -19,6 +19,7 @@ app.use("/api/sensors", sensorRoute);
 
 app.get("/", (req, res) => res.send("Weather API"));
 
+
 // Connect to DB
 mongoose.connect(
     process.env.DB_CONNECTION,
