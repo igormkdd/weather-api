@@ -6,7 +6,6 @@ import sensorRoute from "./routes/sensors.js";
 import cors from "cors";
 
 const app = express();
-const PORT = 443;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,6 +27,6 @@ mongoose.connect(
 );
 
 // Run the app
-app.listen(PORT, () =>
-    console.log(`Server is running on http://localhost:${PORT}`)
+app.listen(process.env.PORT, () =>
+    console.log(`Server is running on http://localhost:${process.env.PORT}`)
 );
