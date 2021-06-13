@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import authRoute from "./routes/auth.js";
 import sensorRoute from "./routes/sensors.js";
-
 import cors from "cors";
 
 const app = express();
