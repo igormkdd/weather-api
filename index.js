@@ -15,7 +15,7 @@ app.use(cors());
 app.use("/api/user", authRoute);
 app.use("/api/sensors", sensorRoute);
 
-app.get("/", (req, res) => res.send("Weather API"));
+app.get("/api", (req, res) => res.send("Weather REST API"));
 
 // Connect to DB
 mongoose.connect(
@@ -28,5 +28,5 @@ mongoose.connect(
 
 // Run the app
 app.listen(process.env.PORT, () =>
-    console.log(`Server is running on http://localhost:${process.env.PORT}`)
+    console.log(`Server is running on port: ${process.env.PORT}`)
 );
