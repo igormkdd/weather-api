@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/api/user", authRoute);
-app.use("/sensors", sensorRoute);
+app.use("/api/sensors", sensorRoute);
 
 app.get("/", (req, res) => res.send("Weather API"));
 
