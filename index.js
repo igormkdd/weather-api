@@ -3,11 +3,9 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import authRoute from "./routes/auth.js";
 import sensorRoute from "./routes/sensors.js";
-
 import cors from "cors";
 
 const app = express();
-const PORT = 443;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,9 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/api/user", authRoute);
-app.use("/sensors", sensorRoute);
+app.use("/api/sensors", sensorRoute);
 
-app.get("/", (req, res) => res.send("Weather API"));
+app.get("/api", (req, res) => res.send("Weather REST API"));
 
 // Connect to DB
 mongoose.connect(
@@ -29,6 +27,6 @@ mongoose.connect(
 );
 
 // Run the app
-app.listen(PORT, () =>
-    console.log(`Server is running on http://localhost:${PORT}`)
+app.listen(process.env.PORT, () =>
+    console.log(`Server is running on port: ${process.env.PORT}`)
 );
