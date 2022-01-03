@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  app:
+    container_name: weather-api-app
+    build: .
+    ports:
+      - "5005:5005"
+    environment:
+      DB_CONNECTION: "mongodb://mongodb:27017/?readPreference=primary&appname=MongoDB\
+        %20Compass&directConnection=true&ssl=false"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: weather-api-db
+    image: mongo:latest
+    restart: always
+    ports: 
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db
+
+volumes:
+  mongodb: null
